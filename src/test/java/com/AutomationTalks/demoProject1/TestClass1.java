@@ -9,6 +9,7 @@ import java.util.concurrent.TimeUnit;
 import org.openqa.selenium.Platform;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.testng.annotations.AfterMethod;
@@ -23,26 +24,33 @@ public class TestClass1 {
 	  public static final String AUTOMATE_KEY = "JpsuaBcnGANeykgafJe5";
 	  public static final String URL = "https://" + USERNAME + ":" + AUTOMATE_KEY + "@hub-cloud.browserstack.com/wd/hub";
 	@BeforeMethod
-	public void launchDriver() throws MalformedURLException {
-		DesiredCapabilities caps=new DesiredCapabilities();
-//		dr=DesiredCapabilities.chrome();
-//		dr.setBrowserName("chrome");
-//		dr.setPlatform(Platform.MAC);
-//		System.setProperty("webdriver.chrome.driver", "/Users/pranay.dua/Downloads/chromedriver");
-//		driver=new RemoteWebDriver(new URL("http://localhost:4545/wd/hub"),dr);
+	public void launchDriver()  {
+		//DesiredCapabilities caps=new DesiredCapabilities();
+		System.setProperty("webdriver.chrome.driver", "/Users/pranay.dua/Downloads/chromedriver_92_1");
+//		DesiredCapabilities caps = DesiredCapabilities.chrome();
+//		caps.setPlatform(Platform.MAC);
+//		ChromeOptions options = new ChromeOptions();
+//		options.merge(caps);
+		//DesiredCapabilities caps=null;
+		//caps = DesiredCapabilities.chrome();
+//		caps=DesiredCapabilities.chrome();
+//		caps.setBrowserName("chrome");
+//		caps.setPlatform(Platform.MAC);
+		//driver=new RemoteWebDriver(new URL("http://localhost:4446/wd/hub"),options);
+		//driver=new RemoteWebDriver(new URL("http://localhost:4446/wd/hub"),caps);
 		
-		caps.setCapability("browser", "Firefox");
-	    caps.setCapability("browser_version", "60.0");
-	    caps.setCapability("os", "Windows");
-	    caps.setCapability("os_version", "7");
-	    caps.setCapability("resolution", "1024x768");
-	    caps.setCapability("project", "AutomationTalksProject");
-	    caps.setCapability("build", "Build1");
-	    caps.setCapability("name", "TestCaseName");
+//		caps.setCapability("browser", "Firefox");
+//	    caps.setCapability("browser_version", "60.0");
+//	    caps.setCapability("os", "Windows");
+//	    caps.setCapability("os_version", "7");
+//	    caps.setCapability("resolution", "1024x768");
+//	    caps.setCapability("project", "AutomationTalksProject");
+//	    caps.setCapability("build", "Build1");
+//	    caps.setCapability("name", "TestCaseName");
 //	    caps.setCapability("name", "Bstack-[Java] Sample Test");
 
-	     driver = new RemoteWebDriver(new URL(URL), caps);
-		//driver=new ChromeDriver();
+	     //driver = new RemoteWebDriver(new URL(URL), caps);
+		driver=new ChromeDriver();
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 		driver.manage().window().fullscreen();
 	}
